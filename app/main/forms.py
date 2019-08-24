@@ -43,3 +43,9 @@ class EditProfileAdminForm(Form):
 		if field.data != sefl.user.username and \
 				User.query.filter_by(username=field.data).first():
 			raise VaildationError('username already in use.')
+
+
+#博客发表的表单
+class PostForm(Form):
+	body = TextAreaField("what's on your mind?", validators=[Required()])
+	submit = SubmitField('Submit')

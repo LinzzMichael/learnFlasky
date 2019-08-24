@@ -1,5 +1,5 @@
 from flask_wtf import Form
-from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField
 from wtforms.validators import Required, Length, Email, Regexp, EqualTo
 from wtforms import ValidationError
 from ..models import User
@@ -30,3 +30,9 @@ class RegistrationForm(Form):
 	def validata_username(self, field):
 		if User.query.filter_by(username=field.data).first():
 			raise ValidationError('Username already in use.')
+
+
+#博客发表的表单
+class PostForm(Form):
+	body = TextAreaField("what's on your mind?", validators=[Required()])
+	submit = SubmitField('Submit')
