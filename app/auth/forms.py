@@ -32,7 +32,3 @@ class RegistrationForm(Form):
 			raise ValidationError('Username already in use.')
 
 
-#博客发表的表单
-class PostForm(Form):
-	body = TextAreaField("what's on your mind?", validators=[Required()])
-	submit = SubmitField('Submit')

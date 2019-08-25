@@ -38,3 +38,4 @@ class UsermodelTestCase(unittest.TestCase):
 
 	def test_anonymous_user(self):
 		u = AnonymousUser()
+		self.assertFalse(u.can(Permission.FOLLOW))

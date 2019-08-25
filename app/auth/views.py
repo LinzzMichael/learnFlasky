@@ -84,12 +84,6 @@ def resend_confirmation():
 	return redirect(url_for('main.index'))
 
 
-@auth.route('/user/<username>')
-@login_required
-def user(username):
-	user = User.query.filter_by(username=username).first()
-	if user is None:
-		abort(404)
-	return render_template('user.html', user=user)
+
 
 
